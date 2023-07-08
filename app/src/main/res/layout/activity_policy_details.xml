@@ -117,8 +117,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="48dp"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp">
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/policy_BTN_save"
