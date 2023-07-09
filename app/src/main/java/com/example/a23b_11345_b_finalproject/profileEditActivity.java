@@ -86,6 +86,7 @@ public class profileEditActivity extends AppCompatActivity {
                 dataOfUser.setUserName(profile_EDT_name.getText().toString());
             ref.setValue(dataOfUser);
             Intent intent = new Intent(this, MainActivity.class);
+            afterSignUp = false;
             startActivity(intent);
             finish();
         } else {
