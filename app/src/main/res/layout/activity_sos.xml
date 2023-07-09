@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".sosActivity"
     android:background="@drawable/background"
+    android:fillViewport="true"
+    android:isScrollContainer="false"
     >
 
     <RelativeLayout

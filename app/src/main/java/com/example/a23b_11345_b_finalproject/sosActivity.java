@@ -15,7 +15,6 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -36,7 +35,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -197,11 +195,12 @@ public class sosActivity extends AppCompatActivity {
                                 index++;
                                 claim.getImages().add(uri.toString());
                                 if (index == 3) {
-                                    databaseReference.child(num+"").setValue(claim);
+
+                                    databaseReference.child( num+"").setValue(claim);
                                     signalGenerator.toast(getResources().getString(R.string.images_success), 0);
                                     progressBar.setVisibility(View.INVISIBLE);
                                     signalGenerator.playUploadSound();
-                                    Intent intent = new Intent(sosActivity.this,MainActivity.class);
+                                    Intent intent = new Intent(sosActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }

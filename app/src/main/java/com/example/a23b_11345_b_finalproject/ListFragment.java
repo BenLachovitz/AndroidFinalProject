@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +17,12 @@ import com.example.a23b_11345_b_finalproject.Interfaces.CallBack_sendClick;
 import com.example.a23b_11345_b_finalproject.Interfaces.ClaimCallBack;
 import com.example.a23b_11345_b_finalproject.Models.Claim;
 import com.example.a23b_11345_b_finalproject.Utillities.Constants;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -40,6 +37,7 @@ public class ListFragment extends Fragment {
     private ArrayList<Claim> claims;
     private DatabaseReference ref;
     private ClaimAdapter claimAdapter;
+    private long numOfClaims;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,7 +70,6 @@ public class ListFragment extends Fragment {
                 claims.add(claim);
                 claimAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 int index = Integer.parseInt(snapshot.getKey());
