@@ -53,6 +53,11 @@ public class loginActivity extends AppCompatActivity {
             }
     );
 
+    @Override
+    public void onBackPressed() {
+        System.exit(0);
+    }
+
     private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
         IdpResponse response = result.getIdpResponse();
         if (result.getResultCode() == RESULT_OK) {
@@ -64,6 +69,9 @@ public class loginActivity extends AppCompatActivity {
                 }
         } else {
             SignalGenerator.getInstance().toast(getResources().getString(R.string.login_error),Toast.LENGTH_SHORT);
+            finish();
+            loginActivity.this.finish();
+            System.exit(0);
         }
     }
 
