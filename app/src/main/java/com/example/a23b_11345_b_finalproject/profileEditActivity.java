@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,7 @@ public class profileEditActivity extends AppCompatActivity {
         signalGenerator = SignalGenerator.getInstance();
         afterSignUp = false;
         ref = FirebaseDatabase.getInstance().getReference(
-                        Constants.DBKeys.USERS).child(FirebaseAuth.getInstance().getUid())
+                        Constants.DBKeys.USERS).child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .child(Constants.DBKeys.DATA_OF_USER);
         findViews();
         initViews();
@@ -58,16 +59,12 @@ public class profileEditActivity extends AppCompatActivity {
                     dataOfUser = new DataOfUser();
                     profile_TXT_headLine.setText(R.string.profle_headLine_newUser);
                     afterSignUp = true;
-                }
-                String name = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-                if (name == null)
-                {
-                    profile_EDT_name.setVisibility(View.VISIBLE);
+                    displayNameTextBox();
                 }
                 else
                 {
                     profile_EDT_name.setVisibility(View.GONE);
-                    dataOfUser.setUserName(name);
+                    initTextBoxes();
                 }
             }
             @Override
@@ -75,6 +72,27 @@ public class profileEditActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void initTextBoxes() {
+        Log.d("DATA CHECK", dataOfUser+"");
+        profile_EDT_licence.setText(dataOfUser.getLicencePlate());
+        profile_EDT_model.setText(dataOfUser.getModel());
+        profile_EDT_year.setText(dataOfUser.getYear() + "");
+    }
+
+    private void displayNameTextBox()
+    {
+        String name = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        if (name == null)
+        {
+            profile_EDT_name.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            profile_EDT_name.setVisibility(View.GONE);
+            dataOfUser.setUserName(name);
+        }
     }
 
     private void saveData() {
