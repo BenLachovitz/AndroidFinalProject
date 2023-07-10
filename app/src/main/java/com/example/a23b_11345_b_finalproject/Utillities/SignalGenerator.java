@@ -75,7 +75,6 @@ public class SignalGenerator {
                 .with(context)
                 .load(url)
                 .placeholder(R.drawable.add_photo)
-                .centerCrop()
                 .fitCenter()
                 .into(imageView);
     }
