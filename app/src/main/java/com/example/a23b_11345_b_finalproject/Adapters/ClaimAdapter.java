@@ -54,8 +54,11 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
             holder.claim_IMG_done.setImageResource(R.drawable.check);
             holder.claim_IMG_trash.setVisibility(View.VISIBLE);
         }
-        else
+        else {
             holder.claim_IMG_done.setImageResource(R.drawable.hollowcheck);
+            holder.claim_IMG_trash.setVisibility(View.INVISIBLE);
+
+        }
 
     }
 
