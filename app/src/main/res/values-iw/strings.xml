@@ -49,4 +49,5 @@
     <string name="upload_photo">העלאת תמונה</string>
     <string name="logout">התנתקות</string>
     <string name="successfully_logedOut">התנתקת בהצלחה</string>
+    <string name="request_Canceled">הבקשה בוטלה</string>
 </resources>

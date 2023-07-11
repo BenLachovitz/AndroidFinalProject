@@ -50,7 +50,9 @@ public class RequestFragment extends Fragment {
     private ShapeableImageView[] markers;
     private LinearLayout request_LYO_progress;
     private int index;
-    boolean firstTick = true;
+    private boolean firstTick;
+    private boolean isRunning;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,6 +60,8 @@ public class RequestFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_request, container, false);
         signalGenerator = SignalGenerator.getInstance();
+        firstTick = true;
+        isRunning = false;
         findViews(view);
         initViews();
         return view;
@@ -84,8 +88,10 @@ public class RequestFragment extends Fragment {
                         progressBar.setProgress(progressBar.getProgress() + 25);
                         markers[index++].setImageResource(R.drawable.marker);
                     }
-                    else
+                    else {
+                        isRunning = true;
                         firstTick = false;
+                    }
                 }
 
                 @Override
@@ -94,6 +100,7 @@ public class RequestFragment extends Fragment {
                     signalGenerator.toast(getResources().getString(R.string.drag_arraived),0);
                     signalGenerator.playRequestSound();
                     timer.cancel();
+                    isRunning = false;
                 }
             }.start();
         }
@@ -154,5 +161,14 @@ public class RequestFragment extends Fragment {
         markers[2] = view.findViewById(R.id.marker3);
         markers[3] = view.findViewById(R.id.marker4);
         request_LYO_progress = view.findViewById(R.id.request_LYO_progress);
+    }
+
+    @Override
+    public void onStop() {
+        if (isRunning){
+            signalGenerator.toast(getResources().getString(R.string.request_Canceled),0);
+            timer.cancel();
+        }
+        super.onStop();
     }
 }

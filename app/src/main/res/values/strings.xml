@@ -49,4 +49,5 @@
     <string name="upload_photo">Upload Photo</string>
     <string name="logout">Logout</string>
     <string name="successfully_logedOut">Successfully Loged Out</string>
+    <string name="request_Canceled">The request was canceled</string>
 </resources>
