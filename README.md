@@ -72,3 +72,6 @@ At this activity it's possible to upload a claim.
 The user need to upload 3 photos, the ID of the second driver, his insurance policy and a photo of the crash it self. The user needs to write a quick description of the incident and if there was witnesses the user should write it too.
 Each one of the photos is an image with listeners that opens the gallery and save the URI for each one of them. When the user pressed on the send button, first the images is uploaded to the Firebase Storage and from the result made a URL for each one, so the app could present the photos using Glide.   
 <img src="https://github.com/BenLachovitz/AndroidFinalProject/assets/127788828/42d2cd6c-b304-4e72-840a-a32066b4164c" width=150px height=325px>
+
+## **Link for a video that I recorded (In Hebrew)**
+https://drive.google.com/file/d/13sGE8SeLBJKnBLpcLarO5FE03vwmpyaX/view?usp=sharing
