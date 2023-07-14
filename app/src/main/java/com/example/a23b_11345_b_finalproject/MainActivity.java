@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
     private void moveToEditProfile() {
         Intent intent = new Intent(this,profileEditActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void initViews() {
@@ -174,8 +175,8 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            MainActivity.this.finish();
-            System.exit(0);
+            super.onBackPressed();
+            //System.exit(0);
         }
     }
 }

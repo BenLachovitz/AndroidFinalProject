@@ -103,7 +103,9 @@ public class profileEditActivity extends AppCompatActivity {
             if (profile_EDT_name.getVisibility() == View.VISIBLE)
                 dataOfUser.setUserName(profile_EDT_name.getText().toString());
             ref.setValue(dataOfUser);
-            onBackPressed();
+            afterSignUp = false;
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
             finish();
         } else {
             signalGenerator.toast(getResources().getString(R.string.all_fields_must_be_filled), 0);
