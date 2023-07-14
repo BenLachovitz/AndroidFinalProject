@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import android.app.DatePickerDialog;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
@@ -61,7 +62,8 @@ public class policyDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getResources().getString(R.string.policy_details));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         signalGenerator = SignalGenerator.getInstance();
-        isHeb = !Locale.getDefault().getLanguage().equals("en");
+        isHeb = Locale.getDefault().toLanguageTag().equals("he-IL");
+        Log.d("isHeb", isHeb+"");
         databaseReference = FirebaseDatabase.getInstance().getReference(Constants.DBKeys.USERS)
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(Constants.DBKeys.POLICY);
         reference = FirebaseStorage.getInstance().getReference()
