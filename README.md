@@ -1,6 +1,8 @@
 ## **Android development course final project**
 The topic I chose is car insurance management app.
 
+The app is fully supporting both English and Hebrew.
+
 **I used Firebase at the app to save the user:**
 
  - There is authentication usage for login and signup.
@@ -57,9 +59,16 @@ The second button, "Send Request" will trigger a demo feature that demonstrate t
 <img src="https://github.com/BenLachovitz/AndroidFinalProject/assets/127788828/32b9e3e7-011c-48c5-937d-b0bb44c7ba8c" width=150px height=300px>
 
 ## **#7 Tracking activity:**
+This activity is made of by 2 fragments.
+At the upper fragment there is the list of the claims as items using Recycler View.
+Each item shows one of the 3 photos as a preview, the upload date and the location where the claim was uploaded. Moreover the user can mark the claim as favorite by pressing the hollow star image and it will change to a yellow one. There is also a tick image, when the treatment of the claim is done (at the company side, for now it's by changing the value directly from the database) it's will be a green tick that indicates that the claim was treated. When the tick is green the trash icon will be shown as well, which the user may choose to delete that if he's like to.
+The bottom fragment is hidden until the first claim item got clicked, and when the user click on a item it's possible to see all the information that uploaded about the claim, all the images, date, location, description and witnesses.
+The work here is mostly like I mentioned using, Recycler View, Fragments, Realtime Database and Glide for the image loader.
 
 <img src="https://github.com/BenLachovitz/AndroidFinalProject/assets/127788828/31a52c41-f2ba-4143-ab7e-7cb454a27330" width=150px height=300px>
 
 ## **#8 S.O.S activity:**
-
+At this activity it's possible to upload a claim.
+The user need to upload 3 photos, the ID of the second driver, his insurance policy and a photo of the crash it self. The user needs to write a quick description of the incident and if there was witnesses the user should write it too.
+Each one of the photos is an image with listeners that opens the gallery and save the URI for each one of them. When the user pressed on the send button, first the images is uploaded to the Firebase Storage and from the result made a URL for each one, so the app could present the photos using Glide.   
 <img src="https://github.com/BenLachovitz/AndroidFinalProject/assets/127788828/178dd0c0-8c1b-4ff2-9a77-29f62f721732" width=150px height=300px>
