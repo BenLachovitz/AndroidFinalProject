@@ -31,7 +31,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="#Add API Here#" />
+            android:value="AIzaSyAo_MKO1Gid3rYefFuwc0Z6-5D8zqppuYk" />
 
         <activity
             android:name=".DragPicker"
